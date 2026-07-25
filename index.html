@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일했음, 중장년 | 중장년 맞춤 재취업 플랫폼</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="device-container">
+    
+    <!-- 1. 온보딩 화면 -->
+    <div id="view-onboarding" class="view">
+      <div class="onboarding-header">
+        <div class="onboarding-logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20,6h-4V4c0-1.11-0.89-2-2-2h-4C8.89,2,8,2.89,8,4v2H4C2.89,6,2,6.89,2,8v12c0,1.11,0.89,2,2,2h16c1.11,0,2-0.89,2-2V8 C22,6.89,21.11,6,20,6z M10,4h4v2h-4V4z M20,20H4V8h16V20z M12,12c-1.66,0-3,1.34-3,3s1.34,3,3,3s3-1.34,3-3S13.66,12,12,12z"/>
+            </svg>
+          </div>
+          <span class="logo-text"><span style="color: var(--primary-color);">일했음</span>, 중장년</span>
+          <span class="logo-sub">다시 뛰는 당신을 응원하는 재취업 매칭 서비스</span>
+        </div>
+      </div>
+
+      <!-- 캐릭터 일러스트 영역 -->
+      <div class="onboarding-character-container">
+        <div class="character-card">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFD1B3"/>
+                <stop offset="100%" stop-color="#FCD0A1"/>
+              </linearGradient>
+              <linearGradient id="hair" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#D1D5DB"/>
+                <stop offset="100%" stop-color="#9CA3AF"/>
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="45" fill="#f0f5ff" />
+            <path d="M25 80 C25 65, 35 60, 50 60 C65 60, 75 65, 75 80 Z" fill="#1e56a0" />
+            <path d="M42 60 L50 72 L58 60 Z" fill="#ffffff" />
+            <path d="M48 68 L50 80 L52 68 Z" fill="#e53e3e" />
+            <rect x="44" y="52" width="12" height="10" rx="3" fill="url(#skin)" />
+            <circle cx="50" cy="40" r="18" fill="url(#skin)" />
+            <path d="M32 36 C30 26, 40 18, 50 20 C60 18, 70 26, 68 36 C68 30, 62 23, 50 24 C38 23, 32 30, 32 36 Z" fill="url(#hair)" />
+            <circle cx="43" cy="39" r="6" stroke="#4b5563" stroke-width="2.5" fill="none" />
+            <circle cx="57" cy="39" r="6" stroke="#4b5563" stroke-width="2.5" fill="none" />
+            <line x1="49" y1="39" x2="51" y2="39" stroke="#4b5563" stroke-width="2.5" />
+            <line x1="37" y1="39" x2="33" y2="36" stroke="#4b5563" stroke-width="2" />
+            <line x1="63" y1="39" x2="67" y2="36" stroke="#4b5563" stroke-width="2" />
+            <path d="M38 30 Q43 28 47 31" stroke="#9ca3af" stroke-width="2" fill="none" stroke-linecap="round" />
+            <path d="M62 30 Q57 28 53 31" stroke="#9ca3af" stroke-width="2" fill="none" stroke-linecap="round" />
+            <path d="M44 48 Q50 54 56 48" stroke="#e53e3e" stroke-width="2" fill="none" stroke-linecap="round" />
+            <path d="M34 42 Q32 44 34 46" stroke="#d4a373" stroke-width="1.5" fill="none" />
+            <path d="M66 42 Q68 44 66 46" stroke="#d4a373" stroke-width="1.5" fill="none" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="onboarding-buttons">
+        <button id="btn-to-signup" class="btn btn-outline">회원가입</button>
+        <button id="btn-to-login" class="btn btn-primary">로그인</button>
+        <button id="btn-skip-login" class="btn btn-link">로그인 없이 시작하기</button>
+      </div>
+    </div>
+
+    <!-- 2. 로그인 화면 -->
+    <div id="view-login" class="view">
+      <button class="login-back-btn" id="btn-login-back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        뒤로
+      </button>
+
+      <div class="login-title-container">
+        <h2>반갑습니다!</h2>
+        <p>안전하고 간편하게 일자리를 매칭해 드립니다.</p>
+      </div>
+
+      <form id="login-form" class="login-form" onsubmit="return false;">
+        <div class="input-group">
+          <label for="login-id">이메일 또는 아이디</label>
+          <input type="text" id="login-id" class="input-field" placeholder="예: user@email.com" autocomplete="username">
+          <div id="error-id" class="error-message">아이디 또는 이메일을 입력해 주세요.</div>
+        </div>
+
+        <div class="input-group">
+          <label for="login-pw">비밀번호</label>
+          <input type="password" id="login-pw" class="input-field" placeholder="비밀번호를 입력해 주세요." autocomplete="current-password">
+          <div id="error-pw" class="error-message">비밀번호를 입력해 주세요.</div>
+        </div>
+
+        <button type="submit" id="btn-login-submit" class="btn btn-primary">로그인</button>
+      </form>
+
+      <div class="login-options-links">
+        <a href="#/find-id-pw" id="link-find-account">아이디·비밀번호 찾기</a>
+        <a href="#/signup" id="link-go-signup" style="font-weight: 700; color: var(--primary-color);">회원가입</a>
+      </div>
+
+      <div class="login-divider">또는 간편 로그인</div>
+
+      <div class="social-login-container">
+        <div class="social-icon-btn kakao" title="카카오 로그인">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#3A1D1D">
+            <path d="M12 3C6.477 3 2 6.582 2 11c0 2.872 1.884 5.378 4.7 6.643-.2 1.344-.7 4.204-.7 4.304 0 .097.05.15.12.1.09-.07 2.37-1.614 4.54-3.1 1.09.153 2.22.253 3.34.253 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
+          </svg>
+        </div>
+        <div class="social-icon-btn naver" title="네이버 로그인">
+          <span style="font-weight: 900; font-size: 20px; color: #ffffff; font-family: 'Pretendard', sans-serif;">N</span>
+        </div>
+        <div class="social-icon-btn google" title="구글 로그인">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.87-2.6-3.3-4.53-6.16-4.53z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 홈 화면 -->
+    <div id="view-home" class="view">
+      <!-- 홈 헤더 -->
+      <div class="home-header">
+        <div class="home-logo-section">
+          <div class="home-logo-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20,6h-4V4c0-1.11-0.89-2-2-2h-4C8.89,2,8,2.89,8,4v2H4C2.89,6,2,6.89,2,8v12c0,1.11,0.89,2,2,2h16c1.11,0,2-0.89,2-2V8 C22,6.89,21.11,6,20,6z M10,4h4v2h-4V4z M20,20H4V8h16V20z M12,12c-1.66,0-3,1.34-3,3s1.34,3,3,3s3-1.34,3-3S13.66,12,12,12z"/>
+            </svg>
+          </div>
+          <span class="home-logo-title">일했음, 중장년</span>
+        </div>
+        <div class="home-profile-avatar" title="마이페이지">
+          김선배
+        </div>
+      </div>
+
+      <!-- 서비스 소개 히어로 카드 -->
+      <div class="home-hero-card">
+        <h2>풍부한 현업 경력,<br>새로운 내 일(My Job)로!</h2>
+        <p>경험과 연륜이 필요한 일자리들을 추천해 드립니다. 지금 바로 역량 진단을 받아보세요.</p>
+        <button id="btn-hero-start" class="btn home-hero-btn">진단 바로 시작하기</button>
+      </div>
+
+      <div class="menu-section-title">주요 서비스</div>
+
+      <!-- 2x2 서비스 메뉴 그리드 -->
+      <div class="home-menu-grid">
+        <div class="menu-card" id="menu-diagnosis">
+          <div class="menu-icon-container">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </div>
+          <h3>맞춤진단</h3>
+          <p>나에게 적합한 재취업 직무 확인</p>
+        </div>
+
+        <div class="menu-card" id="menu-education">
+          <div class="menu-icon-container">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+            </svg>
+          </div>
+          <h3>직무교육</h3>
+          <p>취업 성공률을 높이는 실전 강좌</p>
+        </div>
+
+        <div class="menu-card" id="menu-template">
+          <div class="menu-icon-container">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3>템플릿</h3>
+          <p>이력서, 소개서 양식 무료 다운로드</p>
+        </div>
+
+        <div class="menu-card" id="menu-jobs">
+          <div class="menu-icon-container">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3>취업연계</h3>
+          <p>대기업·스타트업 시니어 매칭 일자리</p>
+        </div>
+      </div>
+
+      <!-- 하단 고정 네비게이션 -->
+      <nav class="bottom-nav">
+        <div class="nav-item active" id="nav-home">
+          <svg viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+          <span>홈</span>
+        </div>
+        <div class="nav-item" id="nav-search">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 5 9.5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <span>일자리</span>
+        </div>
+        <div class="nav-item" id="nav-edu">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09L12 3zm6.8 9.07L12 15.8l-6.8-3.73-1.2.65L12 18l8-4.36-1.2-.57z"/>
+          </svg>
+          <span>직무교육</span>
+        </div>
+        <div class="nav-item" id="nav-profile">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+          <span>내 정보</span>
+        </div>
+      </nav>
+    </div>
+
+    <!-- 4. 맞춤진단 1단계 화면 -->
+    <div id="view-diagnosis-1" class="view">
+      <div class="diag-header">
+        <button class="login-back-btn btn-diag-exit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          진단 종료
+        </button>
+        <div class="diag-progress-container">
+          <div class="diag-progress-bar" style="width: 33%"></div>
+        </div>
+        <div class="diag-step-indicator">기본 이력 진단 (1/3 단계)</div>
+      </div>
+
+      <div class="diag-form-container">
+        <h2>이전 경력과<br>원하시는 희망 조건을 입력해 주세요.</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">신뢰도 높은 추천을 위해 사실대로 채워주시기 바랍니다.</p>
+
+        <!-- 이전 직업명 -->
+        <div class="input-group">
+          <label for="diag-prev-job">이전 직업명 <span class="required">*</span></label>
+          <input type="text" id="diag-prev-job" class="input-field" placeholder="예: 행정 사무원, 기계 가공원">
+          <div id="error-diag-prev-job" class="error-message">이전 직업명을 입력해 주세요.</div>
+        </div>
+
+        <!-- 경력 분야 -->
+        <div class="input-group">
+          <label for="diag-career-field">경력 분야 <span class="required">*</span></label>
+          <select id="diag-career-field" class="input-field">
+            <option value="">-- 경력 분야를 선택해 주세요 --</option>
+            <option value="사무·행정">사무·행정</option>
+            <option value="생산·기술">생산·기술</option>
+            <option value="상담·서비스">상담·서비스</option>
+            <option value="돌봄·지원">돌봄·지원 / 사회복지</option>
+            <option value="기타">기타 / 경력 없음</option>
+          </select>
+          <div id="error-diag-career-field" class="error-message">경력 분야를 선택해 주세요.</div>
+        </div>
+
+        <!-- 총 근무 기간 -->
+        <div class="input-group">
+          <label for="diag-working-years">총 근무 기간 (년) <span class="required">*</span></label>
+          <input type="number" id="diag-working-years" class="input-field" placeholder="예: 15" min="0">
+          <div id="error-diag-working-years" class="error-message">총 근무 기간을 숫자로 입력해 주세요.</div>
+        </div>
+
+        <!-- 주요 업무 및 보유 경험 -->
+        <div class="input-group">
+          <label for="diag-job-detail">주요 업무 및 보유 경험 <span class="required">*</span></label>
+          <textarea id="diag-job-detail" class="input-field" placeholder="이전 직장에서 담당하신 업무나 본인의 주특기를 간략히 써주세요." style="height: 100px; padding: 12px 16px; resize: none;"></textarea>
+          <div id="error-diag-job-detail" class="error-message">업무 세부 사항을 입력해 주세요.</div>
+        </div>
+
+        <!-- 근무 지역 -->
+        <div class="input-group">
+          <label for="diag-location">희망 근무지역 <span class="required">*</span></label>
+          <input type="text" id="diag-location" class="input-field" placeholder="예: 서울 강남구, 경기도 수원시">
+          <div id="error-diag-location" class="error-message">희망 근무지역을 입력해 주세요.</div>
+        </div>
+
+        <!-- 희망 근무시간 -->
+        <div class="input-group">
+          <label>희망 근무시간 <span class="required">*</span></label>
+          <div class="option-card-group">
+            <label class="option-card">
+              <input type="radio" name="diag-working-hours" value="풀타임">
+              <span>하루 종일 (8시간)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="diag-working-hours" value="파트타임">
+              <span>파트타임 (4시간 내외)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="diag-working-hours" value="유연제">
+              <span>자유로운 시간 (유연 근무)</span>
+            </label>
+          </div>
+          <div id="error-diag-working-hours" class="error-message">희망 근무시간을 선택해 주세요.</div>
+        </div>
+
+        <!-- 희망 임금 -->
+        <div class="input-group">
+          <label for="diag-salary">희망 월 임금 (만원) <span class="required">*</span></label>
+          <input type="number" id="diag-salary" class="input-field" placeholder="예: 250" min="0">
+          <div id="error-diag-salary" class="error-message">희망 월급을 입력해 주세요.</div>
+        </div>
+
+        <!-- 고용형태 -->
+        <div class="input-group" style="margin-bottom: 40px;">
+          <label>선호 고용형태 <span class="required">*</span></label>
+          <div class="option-card-group">
+            <label class="option-card">
+              <input type="radio" name="diag-contract-type" value="상용직">
+              <span>상용직 (정규직/계약직)</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="diag-contract-type" value="임시직">
+              <span>임시직 / 파견직</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="diag-contract-type" value="상관없음">
+              <span>조건 상관없음</span>
+            </label>
+          </div>
+          <div id="error-diag-contract-type" class="error-message">고용형태를 선택해 주세요.</div>
+        </div>
+      </div>
+
+      <div class="diag-footer-buttons">
+        <button id="btn-diag1-next" class="btn btn-primary">다음 단계로 이동 (2/3)</button>
+      </div>
+    </div>
+
+    <!-- 5. 맞춤진단 2단계 화면 -->
+    <div id="view-diagnosis-2" class="view">
+      <div class="diag-header">
+        <button class="login-back-btn btn-diag-exit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          진단 종료
+        </button>
+        <div class="diag-progress-container">
+          <div class="diag-progress-bar" style="width: 66%"></div>
+        </div>
+        <div class="diag-step-indicator">디지털 도구 활용 역량 진단 (2/3 단계)</div>
+      </div>
+
+      <div class="diag-form-container">
+        <h2>스마트폰과 컴퓨터를 얼마나 익숙하게 다루시나요?</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">솔직하게 응답해 주시면 적합한 직무 교육을 연계해 드립니다. (총 16문항)</p>
+
+        <!-- 동적 바인딩 영역 -->
+        <div id="diagnosis-q-container"></div>
+      </div>
+
+      <div class="diag-footer-buttons double-btn" style="margin-top: 24px;">
+        <button id="btn-diag2-prev" class="btn btn-outline">이전 단계</button>
+        <button id="btn-diag2-next" class="btn btn-primary">다음 단계로 이동 (3/3)</button>
+      </div>
+    </div>
+
+    <!-- 6. 맞춤진단 3단계 화면 -->
+    <div id="view-diagnosis-3" class="view">
+      <div class="diag-header">
+        <button class="login-back-btn btn-diag-exit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          진단 종료
+        </button>
+        <div class="diag-progress-container">
+          <div class="diag-progress-bar" style="width: 90%"></div>
+        </div>
+        <div class="diag-step-indicator">직무 및 교육 선호도 조사 (3/3 단계)</div>
+      </div>
+
+      <div class="diag-form-container">
+        <h2>마지막으로 원하시는<br>직무와 학습 방식을 알려주세요.</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">선배님의 성향에 꼭 맞는 일자리를 제안해 드릴게요.</p>
+
+        <!-- 직무 선호도 분야 -->
+        <div class="input-group">
+          <label>어떤 업무를 선호하시나요? (각각 체크) <span class="required">*</span></label>
+          
+          <div style="margin-bottom: 12px;">
+            <p style="font-size: 15px; font-weight: bold; margin-bottom: 6px;">1) 사무·행정 (기획, 서류작성, 회계 등)</p>
+            <div class="option-card-row">
+              <label class="option-card compact">
+                <input type="radio" name="pref-office" value="상">
+                <span>많이 선호</span>
+              </label>
+              <label class="option-card compact">
+                <input type="radio" name="pref-office" value="중">
+                <span>보통 선호</span>
+              </label>
+              <label class="option-card compact">
+                <input type="radio" name="pref-office" value="하">
+                <span>선호 안함</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 12px;">
+            <p style="font-size: 15px; font-weight: bold; margin-bottom: 6px;">2) 상담·서비스 (매장 관리, 안내, 전화 등)</p>
+            <div class="option-card-row">
+              <label class="option-card compact">
+                <input type="radio" name="pref-service" value="상">
+                <span>많이 선호</span>
+              </label>
+              <label class="option-card compact">
+                <input type="radio" name="pref-service" value="중">
+                <span>보통 선호</span>
+              </label>
+              <label class="option-card compact">
+                <input type="radio" name="pref-service" value="하">
+                <span>선호 안함</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <p style="font-size: 15px; font-weight: bold; margin-bottom: 6px;">3) 돌봄·지원 (아동/노인 요양, 멘토링 등)</p>
+            <div class="option-card-row">
+              <label class="option-card compact">
+                <input type="radio" name="pref-care" value="상">
+                <span>많이 선호</span>
+              </label>
+              <label class="option-card compact">
+                <input type="radio" name="pref-care" value="중">
+                <span>보통 선호</span>
+              </label>
+              <label class="option-card compact">
+                <input type="radio" name="pref-care" value="하">
+                <span>선호 안함</span>
+              </label>
+            </div>
+          </div>
+          <div id="error-pref-job-types" class="error-message">모든 직무 선호도에 답변해 주세요.</div>
+        </div>
+
+        <!-- 선호 근무 형태 -->
+        <div class="input-group">
+          <label>선호하는 근무 스타일 <span class="required">*</span></label>
+          <div class="option-card-group">
+            <label class="option-card">
+              <input type="radio" name="pref-work-style" value="출퇴근">
+              <span>매일 일정한 직장으로 출퇴근</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="pref-work-style" value="재택">
+              <span>집에서 자유롭게 하는 재택근무</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="pref-work-style" value="혼합">
+              <span>현장과 재택의 혼합 근무</span>
+            </label>
+          </div>
+          <div id="error-pref-work-style" class="error-message">선호 근무 스타일을 선택해 주세요.</div>
+        </div>
+
+        <!-- 선호 학습 방식 -->
+        <div class="input-group">
+          <label>새로운 직무를 배우실 때 선호하는 방식 <span class="required">*</span></label>
+          <div class="option-card-group">
+            <label class="option-card">
+              <input type="radio" name="pref-learning" value="오프라인">
+              <span>교실에 직접 모여서 대면 학습</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="pref-learning" value="온라인">
+              <span>동영상 강의를 통해 편하게 비대면 학습</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="pref-learning" value="일대일">
+              <span>강사가 내 진도에 맞추어 일대일 밀착 개별 지도</span>
+            </label>
+          </div>
+          <div id="error-pref-learning" class="error-message">선호하는 학습 방식을 선택해 주세요.</div>
+        </div>
+
+        <!-- 교육 기대사항 -->
+        <div class="input-group" style="margin-bottom: 40px;">
+          <label for="pref-expectation">교육 과정에서 바라는 점</label>
+          <input type="text" id="pref-expectation" class="input-field" placeholder="예: 동년배 강사 배치, 천천히 설명해 줌 등">
+        </div>
+      </div>
+
+      <div class="diag-footer-buttons double-btn">
+        <button id="btn-diag3-prev" class="btn btn-outline">이전 단계</button>
+        <button id="btn-diag3-submit" class="btn btn-primary">진단 완료하기 (결과 보기)</button>
+      </div>
+    </div>
+
+    <!-- 7. 맞춤진단 결과 화면 -->
+    <div id="view-diagnosis-result" class="view" style="padding-bottom: 30px;">
+      <div id="print-area">
+        <div class="result-top-badge">진단 완료</div>
+        <h2 style="font-size: 26px; font-weight: 800; text-align: center; margin-top: 12px; margin-bottom: 8px;">김선배님의 종합 진단 리포트</h2>
+        <p style="text-align: center; font-size: 15px; color: var(--text-muted); margin-bottom: 24px;">진단 결과를 바탕으로 맞춤 설계를 완료했습니다.</p>
+
+        <!-- 분석 카드 1: 디지털 수준 -->
+        <div class="result-card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>나의 디지털 도구 활용력</h3>
+            <p id="result-digital-summary" style="font-size: 16px; font-weight: bold; color: var(--primary-color); margin-top: 4px;"></p>
+            <p id="result-digital-desc" style="font-size: 14px; margin-top: 4px; line-height: 1.5; color: var(--text-body);"></p>
+          </div>
+        </div>
+
+        <!-- 분석 카드 2: 추천 최적 직무 -->
+        <div class="result-card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3>가장 알맞은 추천 직군</h3>
+            <p id="result-job-match" style="font-size: 18px; font-weight: 800; color: var(--success-color); margin-top: 4px;"></p>
+            <p id="result-job-desc" style="font-size: 14px; margin-top: 4px; line-height: 1.5; color: var(--text-body);"></p>
+          </div>
+        </div>
+
+        <!-- 추천 교육 코스 -->
+        <div class="result-list-section" style="margin-top: 24px;">
+          <h3 class="menu-section-title">선배님을 위한 추천 직무 교육</h3>
+          <div id="result-edu-list">
+            <!-- 동적 바인딩 -->
+          </div>
+        </div>
+
+        <!-- 추천 일자리 공고 -->
+        <div class="result-list-section" style="margin-top: 24px; margin-bottom: 32px;">
+          <h3 class="menu-section-title">맞춤형 채용 정보</h3>
+          <div id="result-job-list">
+            <!-- 동적 바인딩 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 제어 버튼들 (인쇄시 숨김) -->
+      <div class="result-footer-buttons" style="display: flex; gap: 12px; margin-bottom: 12px; width: 100%;">
+        <button id="btn-result-pdf" class="btn btn-outline" style="flex: 1; height: 56px;">PDF 저장</button>
+        <button id="btn-result-edu" class="btn btn-primary" style="flex: 1; height: 56px;">교육 시작하기</button>
+      </div>
+      <button id="btn-result-home" class="btn btn-secondary" style="height: 56px;">홈 화면으로 돌아가기</button>
+    </div>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/diagnosis.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
